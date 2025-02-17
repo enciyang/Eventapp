@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:eventing/screens/home_screen.dart';
-import 'package:eventing/screens/search_screen.dart';
-import 'package:eventing/screens/tickets_screen.dart';
-import 'package:eventing/screens/profile_screen.dart';
+import 'package:EventApp/screens/home_screen.dart';
+import 'package:EventApp/screens/search_screen.dart';
+import 'package:EventApp/screens/tickets_screen.dart';
+import 'package:EventApp/screens/profile_screen.dart';
 
 class BottomBar extends StatefulWidget {
   final String loggedInUser;

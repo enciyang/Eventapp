@@ -23,7 +23,7 @@ class _EventDetailsScreenState extends State<EventDetailsScreen> {
     fetchParticipants();
   }
 
-  /// 🔹 Fetch participants from backend
+  /// 🔹 获取参与者列表
   Future<void> fetchParticipants() async {
     final url = Uri.parse('http://10.0.2.2:3001/participants/${widget.event['id']}');
     try {
@@ -44,11 +44,11 @@ class _EventDetailsScreenState extends State<EventDetailsScreen> {
     }
   }
 
-  /// 🔹 Register user for event
+  /// 🔹 用户注册到活动
   Future<void> registerToEvent() async {
-    final url = Uri.parse('http://10.0.2.2:3001/join-event'); // ✅ Fixed API endpoint
+    final url = Uri.parse('http://10.0.2.2:3001/join-event');
     final body = jsonEncode({
-      "username": widget.loggedInUser.trim(), // ✅ Fixed parameter name
+      "username": widget.loggedInUser.trim(),
       "eventId": widget.event['id']
     });
 
@@ -59,24 +59,18 @@ class _EventDetailsScreenState extends State<EventDetailsScreen> {
         body: body,
       );
 
-      print("📤 Sending request to: $url");
-      print("📦 Request body: $body");
-
       if (response.statusCode == 200) {
-        print("✅ Response: ${response.body}");
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text("✅ Successfully registered for the event!")),
         );
-        fetchParticipants(); // Refresh participant list
+        fetchParticipants();
       } else {
         final errorMessage = jsonDecode(response.body)['message'] ?? "Failed to register";
-        print("❌ Error: $errorMessage");
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text("❌ $errorMessage")),
         );
       }
     } catch (e) {
-      print("❌ Connection error when registering: $e");
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text("❌ Connection error. Try again.")),
       );
@@ -87,44 +81,53 @@ class _EventDetailsScreenState extends State<EventDetailsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text(widget.event['title'] ?? 'Event Details')),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text("📅 Date: ${widget.event['date']}", style: const TextStyle(fontSize: 16)),
-            Text("⏰ Time: ${widget.event['time']}", style: const TextStyle(fontSize: 16)),
-            Text("📍 Venue: ${widget.event['venue']}", style: const TextStyle(fontSize: 16)),
-            const SizedBox(height: 10),
-            const Text("📖 Description:", style: TextStyle(fontWeight: FontWeight.bold)),
-            Text(widget.event['description'] ?? "No description available."),
-            const SizedBox(height: 20),
-            Row(
-              children: [
-                const Icon(Icons.people, size: 20),
-                const SizedBox(width: 5),
-                Text(
-                  "Participants: ${participants.length}",
-                  style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                ),
-              ],
-            ),
-            const SizedBox(height: 10),
-            isRegistered
-                ? const Text("✅ You are registered!", style: TextStyle(color: Colors.green, fontSize: 16))
-                : ElevatedButton(
-              onPressed: registerToEvent,
-              child: const Text("Join Event"),
-            ),
-            const SizedBox(height: 20),
-            const Text("Participant List:", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-            const SizedBox(height: 5),
-            isLoading
-                ? const Center(child: CircularProgressIndicator())
-                : Expanded(
-              child: participants.isEmpty
+      body: RefreshIndicator(
+        onRefresh: fetchParticipants,
+        child: SingleChildScrollView(
+          physics: const AlwaysScrollableScrollPhysics(),
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text("📅 Date: ${widget.event['date']}", style: const TextStyle(fontSize: 16)),
+              Text("⏰ Time: ${widget.event['time']}", style: const TextStyle(fontSize: 16)),
+              Text("📍 Venue: ${widget.event['venue']}", style: const TextStyle(fontSize: 16)),
+              const SizedBox(height: 10),
+              const Text("📖 Description:", style: TextStyle(fontWeight: FontWeight.bold)),
+              Text(widget.event['description'] ?? "No description available."),
+              const SizedBox(height: 20),
+
+              Row(
+                children: [
+                  const Icon(Icons.people, size: 20),
+                  const SizedBox(width: 5),
+                  Text(
+                    "Participants: ${participants.length}",
+                    style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
+
+              const SizedBox(height: 10),
+              isRegistered
+                  ? const Text("✅ You are registered!", style: TextStyle(color: Colors.green, fontSize: 16))
+                  : ElevatedButton(
+                onPressed: () async {
+                  await registerToEvent();
+                },
+                child: const Text("Join Event"),
+              ),
+
+              const SizedBox(height: 20),
+              const Text("Participant List:", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+
+              isLoading
+                  ? const Center(child: CircularProgressIndicator())
+                  : participants.isEmpty
                   ? const Center(child: Text("No participants yet"))
                   : ListView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
                 itemCount: participants.length,
                 itemBuilder: (context, index) {
                   final participant = participants[index];
@@ -134,8 +137,8 @@ class _EventDetailsScreenState extends State<EventDetailsScreen> {
                   );
                 },
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

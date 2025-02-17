@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-import 'package:intl/intl.dart'; // For timestamp formatting
+import 'package:intl/intl.dart';
+import '../screens/login_screen.dart';
 
 class ProfileScreen extends StatefulWidget {
   final String loggedInUser;
@@ -52,7 +53,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
     }
   }
 
-
   Future<void> fetchStatistics() async {
     try {
       final response = await http.get(Uri.parse('http://10.0.2.2:3001/stats'));
@@ -75,7 +75,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
     }
   }
 
-  /// Convert timestamp to readable format
   String formatTimestamp(String timestamp) {
     try {
       final DateTime parsedTime = DateTime.parse(timestamp);
@@ -85,17 +84,25 @@ class _ProfileScreenState extends State<ProfileScreen> {
     }
   }
 
+  void _logout() {
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => LoginScreen()),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text("Profile")),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
+      body: RefreshIndicator(
+        onRefresh: loadData,
         child: SingleChildScrollView(
+          physics: const AlwaysScrollableScrollPhysics(),
+          padding: const EdgeInsets.all(16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              /// 🔹 Profile Info
               Center(
                 child: Column(
                   children: [
@@ -134,7 +141,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ),
 
               const SizedBox(height: 20),
-
 
               const Text("📊 Event Statistics", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
               const SizedBox(height: 10),
@@ -177,6 +183,21 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     },
                   ),
                 ],
+              ),
+
+              const SizedBox(height: 20),
+
+              Center(
+                child: ElevatedButton(
+                  onPressed: _logout,
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.red,
+                  ),
+                  child: const Text(
+                    "logout the account",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
               ),
             ],
           ),

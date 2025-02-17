@@ -141,10 +141,40 @@
   },
   {
     "id": 15,
-    "title": "Test 1",
-    "date": "02/25/2025",
-    "time": "16:00",
-    "venue": "SRH 1 ",
+    "title": "test 1",
+    "date": "12/03/2025",
+    "time": "13:00",
+    "venue": "SRH",
+    "description": "no",
+    "category": "Education",
+    "host": "enci"
+  },
+  {
+    "id": 16,
+    "title": "test 2",
+    "date": "25/02/2025",
+    "time": "18:00",
+    "venue": "SRH",
+    "description": "not yet ",
+    "category": "Education",
+    "host": "enci"
+  },
+  {
+    "id": 17,
+    "title": "test3",
+    "date": "25/02/2025",
+    "time": "14:00",
+    "venue": "Srh",
+    "description": "no",
+    "category": "Education",
+    "host": "enci"
+  },
+  {
+    "id": 18,
+    "title": "test 4",
+    "date": "25/06/2025",
+    "time": "12:00",
+    "venue": "SRH",
     "description": "no",
     "category": "Education",
     "host": "enci"

@@ -72,7 +72,7 @@ class _HomeScreenState extends State<HomeScreen> {
     );
 
     if (response.statusCode == 200) {
-      fetchHostEvents(); // Refresh events after creation
+      fetchHostEvents();
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text("✅ Event Created Successfully!")),
       );
@@ -103,7 +103,6 @@ class _HomeScreenState extends State<HomeScreen> {
       );
     }
   }
-
 
   void _showEditEventDialog(Map<String, dynamic> event) {
     _titleController.text = event['title'];

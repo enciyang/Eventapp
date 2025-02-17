@@ -1,4 +1,4 @@
-name: eventing
+name: EventApp
 description: "A new Flutter project."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -37,6 +37,8 @@ dependencies:
   http: ^1.3.0
   shared_preferences: ^2.5.2
   intl: ^0.20.2
+  socket_io_client: ^3.0.2
+  web_socket_channel: ^3.0.2
 
 dev_dependencies:
   flutter_test:
