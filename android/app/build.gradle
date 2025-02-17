@@ -1,0 +1,40 @@
+plugins {
+    id "com.android.application" version "8.2.1"
+    id "kotlin-android"
+    // Flutter Gradle Plugin 必须放在 Android Gradle Plugin 之后
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
+android {
+    namespace "com.example.eventing"
+    compileSdk flutter.compileSdkVersion
+    ndkVersion flutter.ndkVersion
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_17
+    }
+
+    defaultConfig {
+        applicationId "com.example.eventing"
+        minSdk flutter.minSdkVersion
+        targetSdk flutter.targetSdkVersion
+        versionCode flutter.versionCode
+        versionName flutter.versionName
+    }
+
+    buildTypes {
+        release {
+            // TODO: Add your own signing config for the release build.
+            signingConfig signingConfigs.debug
+        }
+    }
+}
+
+flutter {
+    source "../.."
+}

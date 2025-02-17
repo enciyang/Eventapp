@@ -1,0 +1,15 @@
+[
+  { "username": "test", "password": "123" },
+  { "username": "admin", "password": "admin123" },
+  { "username": "cris", "password": "123" },
+  { "username": "enci", "password": "123" },
+  { "username": "peter", "password": "123" },
+  { "username": "john", "password": "123" },
+  { "username": "michael", "password": "123" },
+  { "username": "juan", "password": "123" },
+  { "username": "maria", "password": "123" },
+  { "username": "alice", "password": "123" },
+  { "username": "andrea", "password": "123" },
+  { "username": "alexa", "password": "123" }
+
+]

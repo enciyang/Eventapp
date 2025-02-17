@@ -1,0 +1,152 @@
+[
+  {
+    "id": 1,
+    "title": "Tech Workshop",
+    "date": "2025-02-20",
+    "time": "10:00 AM",
+    "venue": "Main Hall",
+    "description": "Learn about Flutter & Node.js",
+    "category": "Workshop",
+    "host": "test"
+  },
+  {
+    "id": 2,
+    "title": "Test Event",
+    "date": "2025-04-01",
+    "time": "10:00 AM",
+    "venue": "Auditorium",
+    "description": "A test event",
+    "category": "Tech",
+    "host": "test"
+  },
+  {
+    "id": 3,
+    "title": "Final Project",
+    "date": "02/13/2025",
+    "time": "14:00 ",
+    "venue": "SRH Berlin Campus",
+    "description": "Fullstack Project",
+    "category": "Education",
+    "host": "test"
+  },
+  {
+    "id": 4,
+    "title": "Karaoke Night",
+    "date": "28/02/2025",
+    "time": "19:00",
+    "venue": "Rooftop SRH Berlin",
+    "description": "Part Day",
+    "category": "Fun",
+    "host": "test"
+  },
+  {
+    "id": 5,
+    "title": "Football Game",
+    "date": "17/02/2025",
+    "time": "9:00 ",
+    "venue": "Tegel Fields",
+    "description": "SRH game between Computer Science students",
+    "category": "Fun",
+    "host": "test"
+  },
+  {
+    "id": 6,
+    "title": "Build Your Startup Night",
+    "date": "05/03/2025",
+    "time": "11:00",
+    "venue": "SRH Seminar 0.03 Campus Berlin",
+    "description": "Be Ready!",
+    "category": "Workshop",
+    "host": "cris"
+  },
+  {
+    "id": 7,
+    "title": "Concert ",
+    "date": "20/02/2025",
+    "time": "20:00",
+    "venue": "SRH Berlin Cube",
+    "description": "Students from our arts program will perform a concert",
+    "category": "Music",
+    "host": "cris"
+  },
+  {
+    "id": 8,
+    "title": "Math Exam",
+    "date": "05/03/2025",
+    "time": "9:00 ",
+    "venue": "SRH Berlin Campus",
+    "description": "Math Final Exam",
+    "category": "Education",
+    "host": "test"
+  },
+  {
+    "id": 9,
+    "title": "Book Fair",
+    "date": "15/03/2025",
+    "time": "18:00",
+    "venue": "SRH Library",
+    "description": "Reading is great",
+    "category": "Education",
+    "host": "peter"
+  },
+  {
+    "id": 10,
+    "title": "Poetry Club",
+    "date": "04/04/2025",
+    "time": "9:00 ",
+    "venue": "SRH Library",
+    "description": "Poetry is love ",
+    "category": "Social",
+    "host": "cris"
+  },
+  {
+    "id": 11,
+    "title": "Welcome Party New Students",
+    "date": "05/09/2025",
+    "time": "19:00",
+    "venue": "SRH Rooftop",
+    "description": "Partyyyyyyyyyyy",
+    "category": "Fun",
+    "host": "enci"
+  },
+  {
+    "id": 12,
+    "title": "Programmin 2 Final Project",
+    "date": "02/13/2025",
+    "time": "12:25",
+    "venue": "C1.135",
+    "description": "Fullstack Project Final ",
+    "category": "Education",
+    "host": "cris"
+  },
+  {
+    "id": 13,
+    "title": "Data Visualization Homework",
+    "date": "02/14/2025",
+    "time": "9:00",
+    "venue": "SRH Campus Berlin C1.12",
+    "description": "Main Hall",
+    "category": "Education",
+    "host": "juan"
+  },
+  {
+    "id": 14,
+    "title": "OS Final Examination",
+    "date": "02/13/2025",
+    "time": "8:00 PM",
+    "venue": "SRH Campus Berlin C Section C3.31",
+    "description": "Be prepared for the exam",
+    "category": "Education",
+    "host": "juan"
+  },
+  {
+    "id": 15,
+    "title": "Test 1",
+    "date": "02/25/2025",
+    "time": "16:00",
+    "venue": "SRH 1 ",
+    "description": "no",
+    "category": "Education",
+    "host": "enci"
+  }
+]

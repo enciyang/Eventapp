@@ -1,0 +1,44 @@
+[
+  {
+    "message": "❌ Event deleted: Science Fair",
+    "timestamp": "2025-02-13T02:17:06.181Z"
+  },
+  {
+    "message": "📢 New event created: Book Fair",
+    "timestamp": "2025-02-13T03:00:50.380Z"
+  },
+  {
+    "message": "📢 New event created: Poetry Club",
+    "timestamp": "2025-02-13T03:02:31.005Z"
+  },
+  {
+    "message": "📢 The event \"Build Your Startup Night\" has been updated.",
+    "recipient": "test",
+    "timestamp": "2025-02-13T04:59:19.659Z"
+  },
+  {
+    "message": "📢 The event \"Build Your Startup Night\" has been updated.",
+    "recipient": "enci",
+    "timestamp": "2025-02-13T04:59:19.659Z"
+  },
+  {
+    "message": "📢 The event \"Build Your Startup Night\" has been updated.",
+    "recipient": "andrea",
+    "timestamp": "2025-02-13T04:59:19.659Z"
+  },
+  {
+    "message": "📢 The event \"Build Your Startup Night\" has been updated.",
+    "recipient": "peter",
+    "timestamp": "2025-02-13T04:59:19.659Z"
+  },
+  {
+    "username": "cris",
+    "message": "The event \"Welcome Party New Students\" has been updated.",
+    "timestamp": "2025-02-13T09:45:25.355Z"
+  },
+  {
+    "message": "📢 The event \"OS Final Examination\" has been updated.",
+    "recipient": "enci",
+    "timestamp": "2025-02-13T16:25:54.240Z"
+  }
+]
